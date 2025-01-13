@@ -23,33 +23,13 @@
   </head>
 
   <body>
-    <!-- filepath: /mnt/Windows-SSD/Users/yvavi/yeet/coding/ruby/private_events/app/views/layouts/application.html.erb -->
-    <!-- filepath: /mnt/Windows-SSD/Users/yvavi/yeet/coding/ruby/private_events/app/views/layouts/application.html.erb -->
     <header>
       <nav style="display: flex; justify-content: space-between; align-items: center;">
-        <ul style="list-style: none; display: flex; margin: 0; padding: 0;">
-          <li style="margin-left: 20px;">
-            <%= link_to "Events", events_path, style: "display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: #007bff; color: white; text-decoration: none; text-align: center;" %>
-          </li>
-        </ul>
-
-        <ul style="list-style: none; display: flex; margin: 0; padding: 0; min-width: 150px; max-width: 300px; justify-content: flex-end;">
-          <% if current_user %>
-            <li style="margin-left: 20px;">
-              <%= link_to "Profile", edit_user_registration_path, style: "display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: #007bff; color: white; text-decoration: none; text-align: center;" %>
-            </li>
-            <li style="margin-left: 20px;">
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, style: "display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: #007bff; color: white; text-decoration: none; text-align: center;" %>
-            </li>
-          <% else %>
-            <li style="margin-left: 20px;">
-              <%= link_to "Log in", new_user_session_path, style: "display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: #007bff; color: white; text-decoration: none; text-align: center;" %>
-            </li>
-            <li style="margin-left: 20px;">
-              <%= link_to "Sign up", new_user_registration_path, style: "display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: #007bff; color: white; text-decoration: none; text-align: center;" %>
-            </li>
-          <% end %>
-        </ul>
+        <% if current_user %>
+          <%= render 'layouts/logged_in_navbar' %>
+        <% else %>
+          <%= render 'layouts/logged_out_navbar' %>
+        <% end %>
       </nav>
     </header>
     <p class="notice"><%= notice %></p>

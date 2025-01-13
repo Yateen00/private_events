@@ -1,0 +1,10 @@
+<!-- filepath: /mnt/Windows-SSD/Users/yvavi/yeet/coding/ruby/private_events/app/views/layouts/_logged_out_navbar.html.erb -->
+<nav style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+  <div style="display: flex;">
+    <%= link_to "Events", events_path, class: "nav-button" %>
+  </div>
+  <div style="display: flex;">
+    <%= link_to "Log in", new_user_session_path, class: "nav-button" %>
+    <%= link_to "Sign up", new_user_registration_path, class: "nav-button" %>
+  </div>
+</nav>

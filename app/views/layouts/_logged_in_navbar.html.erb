@@ -1,0 +1,12 @@
+<!-- filepath: /mnt/Windows-SSD/Users/yvavi/yeet/coding/ruby/private_events/app/views/layouts/_logged_in_navbar.html.erb -->
+<nav style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+  <div style="display: flex;">
+    <%= link_to "Events", events_path, class: "nav-button" %>
+    <%= link_to "My Events", user_path(current_user), class: "nav-button" %>
+  </div>
+  <div style="display: flex;">
+    <%= link_to "Profile", edit_user_registration_path, class: "nav-button" %>
+    <%= link_to "Create Event", new_event_path, class: "nav-button" %>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "nav-button" %>
+  </div>
+</nav>
