@@ -1,0 +1,26 @@
+<%= render "devise/shared/error_messages" , resource: event %>
+<%= form_with model: event do |f| %>
+  <div class="event_input">
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title ,placeholder: "Your Title Here" %>
+  </div>
+
+  <div class="event_input">
+    <%= f.label :date ,"Date"%>
+    <%= f.date_field :date %>
+  </div>
+
+  <div class="event_input">
+    <%= f.label :location ,"Location"%>
+    <%= f.text_field :location ,placeholder: "wall street" %>
+  </div>
+
+  <div class="event_input">
+    <%= f.label :description ,"Description"%>
+    <%= f.text_area :description, placeholder: "awesome party" %>
+  </div>
+
+  <div class="event_input"><%= f.submit "Submit" %>
+  </div>
+
+<% end %>

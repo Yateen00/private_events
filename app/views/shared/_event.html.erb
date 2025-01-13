@@ -1,11 +1,11 @@
 <div class="event" style="border: 1px solid #ddd; border-radius: 10px; padding: 20px; margin-bottom: 20px; background-color: #f9f9f9;">
   <h2 style="margin-top: 0;"><%= link_to event.title, event_path(event), style: "color: #007bff; text-decoration: none;" %></h2>
-  <p><%= truncate(event.description, length: 100) %></p>
+  <p><%= event_description(event,caller)%></p>
   <p><strong>Creator:</strong> <%= link_to event.creator.name, user_path(event.creator.id)  %></p>
   <p><strong>Date:</strong> <%= event.date.strftime("%B %d, %Y") %></p>
   <p><strong>Time:</strong> <%= event.date.strftime("%I:%M %p") %></p>
   <p><strong>Location:</strong> <%= event.location %></p>
-  <% if caller=="user_events" && current_user == event.creator %>
+  <% if caller=="show_user" && current_user == event.creator %>
     <%= link_to "Edit", edit_event_path(event), style: "display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: #007bff; color: white; text-decoration: none; text-align: center;" %>
     <%= link_to "Delete", event_path(event), method: :delete, data: { confirm: "Are you sure?" }, style: "display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: #ff0000; color: white; text-decoration: none; text-align: center;" %>
   <% end %>
