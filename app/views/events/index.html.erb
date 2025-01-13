@@ -1,0 +1,9 @@
+<h1 class="text-center" style="text-align: center;">Events</h1>
+<% unless @events.empty? %>
+  <%= @events.each do %>
+    <hr>
+    <%= render 'event', event: event %>
+  <% end %>
+<% else %>
+  <p class="text-center">No events found</p>
+<%end %>
