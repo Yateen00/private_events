@@ -1,6 +1,9 @@
 class Event < ApplicationRecord
   belongs_to :creator, class_name: "User", inverse_of: :created_events
 
+  has_many :event_registrations, class_name: "EventRegistration", foreign_key: "attended_event_id", inverse_of: :attended_event
+  has_many :attendees, through: :event_registrations, source: :attendee, inverse_of: :attended_events
+
   validates :creator, :title, :description, :location, :date, presence: true
   validate :date_cannot_be_in_the_past, on: :create
 
