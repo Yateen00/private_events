@@ -25,3 +25,72 @@
 .nav-button:first-child {
   margin-left: 0;
 }
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+}
+
+.button-edit {
+  background-color: #007bff;
+}
+
+.button-delete {
+  background-color: #ff0000;
+}
+
+.button-ended {
+  background-color: #6c757d;
+}
+
+.button-register {
+  background-color: #007bff;
+}
+.text-center {
+  text-align: center;
+}
+
+.attendees-header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+}
+
+.attendees-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.attendees-list li {
+  padding: 5px 0;
+}
+.event {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+}
+
+.event-title {
+  margin-top: 0;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.event-title:hover {
+  text-decoration: underline;
+}
+.text-center {
+  text-align: center;
+}
+
+.heading {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+}

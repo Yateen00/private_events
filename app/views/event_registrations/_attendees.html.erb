@@ -1,5 +1,5 @@
-<h1 class="text-center" style="text-align: center; background-color: #007bff; color: white; padding: 10px;">Attendees</h1>
-<ul>
+<h1 class="text-center attendees-header">Attendees</h1>
+<ul class="attendees-list">
   <% event.attendees.each do |attendee| %>
     <li><%= attendee.name %></li>
   <% end %>
