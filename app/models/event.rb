@@ -25,4 +25,6 @@ class Event < ApplicationRecord
     errors.add(:base, "Cannot edit an event after its end date")
     throw(:abort)
   end
+  scope :upcoming, -> { where(date: DateTime.now..) }
+  scope :past, -> { where(date: ...DateTime.now) }
 end

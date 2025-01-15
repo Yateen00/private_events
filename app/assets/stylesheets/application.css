@@ -94,3 +94,21 @@
   color: white;
   padding: 10px;
 }
+.text-center {
+  text-align: center;
+}
+
+.heading {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+}
+
+.subheading {
+  margin-top: 20px;
+  color: #007bff;
+}
+.button-container {
+  display: flex;
+  gap: 10px; /* Adjust the gap between buttons as needed */
+}

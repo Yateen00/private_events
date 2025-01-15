@@ -1,13 +1,17 @@
 module EventHelper
-  def event_action_buttons(event, show_admin_links)
-    return button_tag "Event has ended", type: "button", class: "button button-ended" if event.date <= Time.now
-    return edit_and_delete_buttons(event) if show_admin_links && current_user == event.creator
+  def event_action_buttons(event, show_admin_links, in_past)
+    return button_tag "Event has ended", type: "button", class: "button button-ended" if in_past
 
-    if user_signed_in? && event.attendees.include?(current_user)
-      cancel_registration_button(event)
-    else
-      register_button(event)
-    end
+    buttons = ""
+    buttons += edit_and_delete_buttons(event) if show_admin_links && current_user == event.creator
+
+    buttons += if user_signed_in? && event.attendees.include?(current_user)
+                 cancel_registration_button(event)
+               else
+                 register_button(event)
+               end
+
+    buttons.html_safe
   end
 
   private
@@ -20,7 +24,7 @@ module EventHelper
 
   def cancel_registration_button(event)
     registration = event.event_registrations.find_by(attendee_id: current_user.id)
-    return unless registration
+    return "" unless registration
 
     button_to("Cancel Registration", event_event_registration_path(event, registration), method: :delete,
                                                                                          class: "button button-delete")

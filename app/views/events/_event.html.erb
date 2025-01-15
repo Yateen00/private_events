@@ -5,7 +5,7 @@
   <p><strong>Date:</strong> <%= event.date.strftime("%B %d, %Y") %></p>
   <p><strong>Time:</strong> <%= event.date.strftime("%I:%M %p") %></p>
   <p><strong>Location:</strong> <%= event.location %></p>
-  <div>
-    <%= event_action_buttons(event, local_assigns[:show_admin_links]) %>
+  <div class="button-container">
+    <%= event_action_buttons(event, local_assigns[:show_admin_links],local_assigns[:in_past]) %>
   </div>
 </div>

@@ -1,6 +1,17 @@
 <h1 class="text-center heading"><%= local_assigns[:heading] ? local_assigns[:heading] : "Events" %></h1>
-<% unless events.empty? %>
-  <%= render partial: 'events/event', collection: events, locals: { show_admin_links: local_assigns[:show_admin_links], show_full_description: local_assigns[:show_full_description] } %>
+
+<h2 class="text-center subheading">Upcoming Events</h2>
+<% upcoming_events = events.upcoming %>
+<% if upcoming_events.any? %>
+  <%= render partial: 'events/event', collection: upcoming_events, locals: { show_admin_links: local_assigns[:show_admin_links], show_full_description: local_assigns[:show_full_description] } %>
 <% else %>
-  <p class="text-center">No events found</p>
+  <p class="text-center">No upcoming events found</p>
+<% end %>
+
+<h2 class="text-center subheading">Past Events</h2>
+<% past_events = events.past %>
+<% if past_events.any? %>
+  <%= render partial: 'events/event', collection: past_events, locals: { show_admin_links: local_assigns[:show_admin_links], show_full_description: local_assigns[:show_full_description] , in_past: true} %>
+<% else %>
+  <p class="text-center">No past events found</p>
 <% end %>
