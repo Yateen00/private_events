@@ -1,0 +1,6 @@
+<h1 class="text-center" style="text-align: center; background-color: #007bff; color: white; padding: 10px;"><%= local_assigns[:heading] ? local_assigns[:heading] : "Events" %></h1>
+<% unless events.empty? %>
+  <%= render partial: 'events/event', collection: events, locals: { show_admin_links: local_assigns[:show_admin_links] , show_full_description: local_assigns[:show_full_description] } %>
+<% else %>
+  <p class="text-center">No events found</p>
+<%end %>

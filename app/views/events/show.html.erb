@@ -1,1 +1,2 @@
-<%= render partial: 'shared/event', locals: { caller: "show_event" , event: @event} %>
+<%= render partial: 'event', locals: { show_admin_links: true , event: @event, show_full_description: true } %>
+<%= render partial: "event_registrations/attendees", locals: {event: @event } %>

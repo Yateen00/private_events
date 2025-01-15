@@ -1,1 +1,2 @@
-<%= render partial: 'shared/events', locals: { caller: "show_user" , events: @user.created_events} %>
+<%= render partial: 'events/events', locals: { show_admin_links: true , events: @user.created_events , heading: "Created Events"} %>
+<%= render partial: "event_registrations/registered_for", locals: { user: @user} %>
